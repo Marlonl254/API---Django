@@ -19,11 +19,11 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
-from api.views import ProductView
+from api.views import ProductView, StudentView
 router = routers.DefaultRouter()
-router.register("",ProductView)
-
+router.register("products",ProductView)
+router.register("students",StudentView)
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls))
+    path('api/', include(router.urls))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

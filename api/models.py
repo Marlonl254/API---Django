@@ -19,6 +19,8 @@ class Product(models.Model):
 class Student(models.Model):
     student_name = models.CharField(max_length=60)
     adm_no = models.CharField(max_length=10)
+    books = models.TextField(default="List of books", max_length=1000)
+    image = models.ImageField(upload_to="Students", default="Products/products.png")
     
     def __str__(self):
         return self.student_name
